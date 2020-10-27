@@ -1,0 +1,76 @@
+.homeHeader {
+    @extend %grid-col;
+    grid-template-rows: min-content min-content;
+    color: var(--colour__bg);
+    position: relative;
+    padding: 0 0 6rem;
+    header {
+        padding: 33vh 0;
+        grid-column: grid-start / grid-end;
+        @include breakpoint($tablet-l) {
+            grid-column: col-3 / span 6;
+        }
+        h1 {
+            @extend %t--1;   
+        }
+    }
+    .fig {
+        background: var(--colour__main);
+        position: absolute;
+        height: 100%;
+        top: 0px;
+        padding-bottom: 0;
+        z-index: -1;
+        img {
+            transform: scale(1.2);
+            top: 0;
+            position: fixed;
+            &[data-ll-status="loaded"] { 
+                opacity: .8;
+            }
+        }
+    }
+
+    &__content {
+        grid-row: 2;
+        grid-column: grid-start / grid-end;
+        margin-bottom: 2rem;
+        @include breakpoint($tablet-l) {
+            grid-column: col-3 / span 5;
+        }
+        h2 {
+            @extend %t--2;
+            margin-bottom: 2rem;
+        }
+        p {
+            @extend %t--4;
+        }
+    }
+
+    .businessCard {
+        align-self: start;
+        padding: calc(var(--gutter) / 2);
+        color: var(--colour__main);
+        grid-column: grid-start / grid-end;
+        grid-row: 3;
+        @include breakpoint($tablet-l) {
+            grid-row: 2;
+            grid-column: col-8 / span 4;
+        }
+        background: var(--colour__bg);
+        border-radius: .5rem;
+        dt, dd {
+            display: inline-block;
+        }
+        h3 {
+            @extend %t--3;
+            font-weight: 600;
+        }
+        dt {
+            font-weight: 600;
+        }
+        dd {
+            color: #666;
+        }
+    }
+}
